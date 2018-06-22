@@ -34,18 +34,18 @@
             <th></th>
           </tr>
           </thead>
-          <tbody>
-          <tr *ngFor="let user of users">
-            <th scope="row">{{vehiculo.placa}}</th>
-            <td>{{vehiculo.placa}}</td>
-            <td>{{vehiculo.tipoVehiculo}}</td>
-            <td>{{vehiculo.fechaIngreso}}</td>
-            <td>
-            </td>
-          </tr>
 
+          <tbody>
+              <tr *ngFor="let vehiculo of vehiculos">
+                  <th scope="row">{{vehiculo.secuenciaParqueoVehiculo}}</th>
+                  <td>{{vehiculo.vehiculo.placa}}</td>
+                  <td>{{vehiculo.vehiculo.tipoVehiculo}}</td>
+                  <td>{{vehiculo.fechaIngreso}}</td>           
+                  
+              </tr>
           </tbody>
         </table>
+        
       </section>
     </div>
   </div>

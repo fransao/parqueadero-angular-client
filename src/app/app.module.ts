@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 
 import { VehiculoRoutingModule } from './vehiculo/vehiculo-routing.module';
 import { AppComponent } from './app.component';
 import { VehiculoModule } from './vehiculo/vehiculo.module';
+import { VehiculoService } from './vehiculo/vehiculo.service';
 
 @NgModule({
   declarations: [
@@ -16,9 +17,9 @@ import { VehiculoModule } from './vehiculo/vehiculo.module';
     BrowserModule,
     VehiculoRoutingModule,
     VehiculoModule,
-    HttpModule
+    HttpClientModule
   ],
-  providers: [],
+  providers: [VehiculoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

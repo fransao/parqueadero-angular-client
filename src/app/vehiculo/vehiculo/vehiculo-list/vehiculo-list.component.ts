@@ -9,21 +9,13 @@ import { VehiculoService } from '../../vehiculo.service';
   providers: [VehiculoService]
 })
 export class VehiculoListComponent implements OnInit {
-  private vehiculos: Vehiculo[]; 
+  private vehiculos: Array<any>;
+   
   constructor(private vehiculoService: VehiculoService) { }
 
   ngOnInit() {
-    this.getAllVehiculos();
-  }
-
-  getAllVehiculos () {
-    this.vehiculoService.findAll().subscribe(
-      vehiculos => {
-       this.vehiculos = vehiculos; 
-      },
-      err => {
-        console.log(err);
-      }
-    )
+    this.vehiculoService.findAll().subscribe(data => {
+      this.vehiculos = data;
+    });
   }
 }
