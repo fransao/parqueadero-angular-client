@@ -16,6 +16,9 @@ export class VehiculoListComponent implements OnInit {
   ngOnInit() {
     this.vehiculoService.findAll().subscribe(data => {
       this.vehiculos = data;
+    },
+    error=>{
+      console.error(error)
     });
   }
 }

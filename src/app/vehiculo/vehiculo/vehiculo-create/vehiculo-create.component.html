@@ -6,7 +6,7 @@
   <div class="row">
     <div class="col">
       <section>
-        <form novalidate [formGroup]="vehiculoForm" (ngSubmit)="onSubmit()">
+        <form class="form-horizontal" novalidate [formGroup]="vehiculoForm" (ngSubmit)="onSubmit()">
           <fieldset>
             <div class="form-group">
               <label>Placa</label>
@@ -15,17 +15,33 @@
                      formControlName="placa">
             </div>
  
-            <div class="form-group">
-              <label>Tipo Vehiculo</label>
-              <input type="text"
-                     class="form-control"
-                     formControlName="tipoVehiculo">
+            <div class="form-group" >
+              <label for="select">Tipo Vehiculo</label>
+              <select id="select" class="form-control"
+              formControlName="tipoVehiculo">>
+                  <option>CARRO</option>
+                  <option>MOTO</option>                  
+                </select>
+             
             </div>
+
+            <div class="form-group">
+                <label>Cilindraje</label>
+                <input type="number"
+                       class="form-control"
+                       formControlName="cilindraje">
+            </div>
+
           </fieldset>
- 
+          
+          <div *ngIf="condition; else elseBlock">...</div>
+
           <button type="submit" class="btn btn-primary"  [disabled]="!vehiculoForm.valid" >Submit</button>
           <button type="button" class="btn btn-warning" (click)="redirectUserPage()">Cancel</button>
+
           <pre>{{vehiculoForm.value | json}}</pre>
+
+          
         </form>
       </section>
     </div>

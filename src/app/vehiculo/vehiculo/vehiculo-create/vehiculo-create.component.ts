@@ -11,9 +11,12 @@ import { Vehiculo } from '../../vehiculo';
   styleUrls: ['./vehiculo-create.component.css'],
   providers: [VehiculoService]
 })
+
 export class VehiculoCreateComponent implements OnInit {
 
+  private vehiculo: Vehiculo;
   vehiculoForm: FormGroup;
+  submitted = false;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -21,9 +24,11 @@ export class VehiculoCreateComponent implements OnInit {
 
   ngOnInit() {
     this.vehiculoForm = new FormGroup({
-      placa: new FormControl('', Validators.required),
-      tipoVehiculo: new FormControl('', Validators.required)     
+      placa: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(6)]),
+      tipoVehiculo: new FormControl('', Validators.required),
+      cilindraje: new FormControl(''),     
     });
+    
   }
 
   onSubmit() {
@@ -31,13 +36,22 @@ export class VehiculoCreateComponent implements OnInit {
 
       let vehiculo: Vehiculo = new Vehiculo(
       this.vehiculoForm.controls['placa'].value,
-      this.vehiculoForm.controls['tipoVehiculo'].value, new Date);
-      this.vehiculoService.saveIngresoVehiculo(vehiculo).subscribe();
+      this.vehiculoForm.controls['tipoVehiculo'].value,
+      this.vehiculoForm.controls['cilindraje'].value, 
+      new Date);
+      this.vehiculoService.saveIngresoVehiculo(vehiculo).subscribe(data => {        
+        this.vehiculo = data;
+      }, error=>{
+        console.error(error)
+      });
     }
+      this.submitted = true;
 
       this.vehiculoForm.reset();
-      this.router.navigate(['/vehiculo']);
+      this.router.navigate(['/vehiculo/create']);
 
     }
     
+   
+
 }

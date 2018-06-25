@@ -1,3 +1,78 @@
 <p>
   Salida vehiculo works!
 </p>
+
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <section>
+          <form class="form-horizontal" novalidate [formGroup]="gestionVehiculoForm" (ngSubmit)="onSubmit()">
+            <fieldset>
+              <div class="form-group">
+                <label>Placa</label>
+                <input type="text"
+                       class="form-control"
+                       formControlName="placa">
+
+                <button type="submit" class="btn btn-primary"  [disabled]="!gestionVehiculoForm.valid" >Consultar</button>
+              </div>
+              
+              <div>
+                  
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <div class="form-group" >
+                  <label for="select">Tipo Vehiculo</label>
+                  <select id="select" class="form-control"
+                  formControlName="tipoVehiculo">>
+                      <option>CARRO</option>
+                      <option>MOTO</option>                  
+                    </select>
+                 
+                </div>
+    
+                <div class="form-group">
+                    <label>Cilindraje</label>
+                    <input type="number"
+                           class="form-control"
+                           formControlName="cilindraje">
+                </div>
+
+                <div class="form-group" >
+                    <label>Fecha ingreso</label>
+                    <input type="datetime"
+                           class="form-control"
+                           formControlName="fechaIngreso">
+                   
+                  </div>
+      
+                  <div class="form-group">
+                      <label>Fecha Salida</label>
+                      <input type="datetime"
+                             class="form-control"
+                             formControlName="fechaSalida">
+                  </div>
+
+                  <div class="form-group">
+                      <label>Valor Pagar</label>
+                      <input type="number"
+                             class="form-control"
+                             >
+                  </div>
+
+            </fieldset>
+            
+            <div *ngIf="condition; else elseBlock">...</div>
+ 
+            <button type="submit" class="btn btn-primary"  [disabled]="!gestionVehiculoForm.valid" >Pagar</button>
+            <button type="button" class="btn btn-warning" (click)="redirectUserPage()">Cancel</button>
+  
+            <pre>{{gestionVehiculoForm.value | json}}</pre>
+              
+          </form>
+        </section>
+      </div>
+    </div>
+  </div>
