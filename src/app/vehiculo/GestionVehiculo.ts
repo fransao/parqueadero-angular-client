@@ -1,21 +1,17 @@
+import { Vehiculo } from "./vehiculo";
+
 export class GestionVehiculo {
  
-    placa: string;
-    tipoVehiculo: string; 
+    vehiculo: Vehiculo;
     fechaIngreso: Date;
     fechaSalida: Date;
-    valorPagar: number;
+    valor: number;
    
-    /*constructor (placa: string) {
-      this.placa = placa;
-    }*/
-
-    constructor (placa: string, tipoVehiculo: string, fechaIngreso: Date, fechaSalida: Date, valorPagar:number) {
-      this.placa = placa;
-      this.tipoVehiculo = tipoVehiculo;
+    constructor (vehiculo: Vehiculo,  fechaIngreso: Date, fechaSalida: Date, valor:number) {
+      this.vehiculo = vehiculo;
       this.fechaIngreso = fechaIngreso;
       this.fechaSalida  = fechaSalida;
-      this.valorPagar   = valorPagar; 
+      this.valor   = valor; 
     }
    
   }

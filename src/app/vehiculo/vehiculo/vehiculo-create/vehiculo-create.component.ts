@@ -5,6 +5,9 @@ import {ActivatedRoute, Router} from '@angular/router';
 import { VehiculoService } from '../../vehiculo.service';
 import { Vehiculo } from '../../vehiculo';
 
+import 'rxjs/add/observable/throw'; 
+import { Observable } from 'rxjs/Observable';
+
 @Component({
   selector: 'app-vehiculo-create',
   templateUrl: './vehiculo-create.component.html',
@@ -17,6 +20,7 @@ export class VehiculoCreateComponent implements OnInit {
   private vehiculo: Vehiculo;
   vehiculoForm: FormGroup;
   submitted = false;
+  messageService = '';
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -41,14 +45,19 @@ export class VehiculoCreateComponent implements OnInit {
       new Date);
       this.vehiculoService.saveIngresoVehiculo(vehiculo).subscribe(data => {        
         this.vehiculo = data;
-      }, error=>{
-        console.error(error)
+        alert ('Vehiculo ingresado correctamente'); 
+        this.messageService = 'Vehiculo ingresado correctamente';
+        console.log('Vehiculo ingresado correctamente');
+        
+      }, error=>{                
+        alert ('Se presento un error al intentar ingresar el vehiculo'); 
+        console.log(error);       
       });
     }
       this.submitted = true;
 
-      this.vehiculoForm.reset();
-      this.router.navigate(['/vehiculo/create']);
+      //this.vehiculoForm.reset();
+      //this.router.navigate(['/vehiculo/create']);
 
     }
     

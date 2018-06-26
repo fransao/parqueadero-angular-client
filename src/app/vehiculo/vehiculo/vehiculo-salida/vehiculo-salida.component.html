@@ -12,7 +12,8 @@
                 <label>Placa</label>
                 <input type="text"
                        class="form-control"
-                       formControlName="placa">
+                       formControlName="placa"
+                       placeholder="Digite la placa del vehiculo">
 
                 <button type="submit" class="btn btn-primary"  [disabled]="!gestionVehiculoForm.valid" >Consultar</button>
               </div>
@@ -23,28 +24,31 @@
             </fieldset>
 
             <fieldset>
+              <div class="form-group">
+                  <label>Placa</label>
+                  <input type="text"
+                         class="form-control"
+                         formControlName="placa"
+                         disabled>
+                    
+              </div>
+
               <div class="form-group" >
                   <label for="select">Tipo Vehiculo</label>
                   <select id="select" class="form-control"
-                  formControlName="tipoVehiculo">>
+                  formControlName="tipoVehiculo" disabled>
                       <option>CARRO</option>
                       <option>MOTO</option>                  
                     </select>
                  
                 </div>
     
-                <div class="form-group">
-                    <label>Cilindraje</label>
-                    <input type="number"
-                           class="form-control"
-                           formControlName="cilindraje">
-                </div>
-
                 <div class="form-group" >
                     <label>Fecha ingreso</label>
                     <input type="datetime"
                            class="form-control"
-                           formControlName="fechaIngreso">
+                           formControlName="fechaIngreso"
+                           disabled>
                    
                   </div>
       
@@ -52,14 +56,16 @@
                       <label>Fecha Salida</label>
                       <input type="datetime"
                              class="form-control"
-                             formControlName="fechaSalida">
+                             formControlName="fechaSalida"
+                             disabled>
                   </div>
 
                   <div class="form-group">
                       <label>Valor Pagar</label>
                       <input type="number"
                              class="form-control"
-                             >
+                             formControlName="valorPagar"
+                             disabled>
                   </div>
 
             </fieldset>
