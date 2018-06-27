@@ -14,12 +14,13 @@
                      class="form-control"
                      formControlName="placa" 
                      maxlength="6" 
-                     placeholder="Digite la placa del vehiculo">
+                     placeholder="Digite la placa del vehiculo"
+                     id="placa">
             </div>
  
             <div class="form-group" >
-              <label for="select">Tipo Vehiculo</label>
-              <select id="select" class="form-control"
+              <label for="tipoVehiculo">Tipo Vehiculo</label>
+              <select id="tipoVehiculo" class="form-control"
               formControlName="tipoVehiculo">>
                   <option>CARRO</option>
                   <option>MOTO</option>                  
@@ -38,9 +39,13 @@
           
           <div *ngIf="condition; else elseBlock">...</div>
 
-          <button type="submit" class="btn btn-primary"  [disabled]="!vehiculoForm.valid" >Submit</button>
+          <button type="submit" class="btn btn-primary"  [disabled]="!vehiculoForm.valid" name="ingresar" >Submit</button>
           <button type="button" class="btn btn-warning" (click)="redirectUserPage()">Cancel</button>
-
+          
+          <div id="mensaje">
+          {{messageService}}
+          </div>
+          
           <pre>{{vehiculoForm.value | json}}</pre>
 
           

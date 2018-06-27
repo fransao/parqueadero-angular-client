@@ -44,14 +44,15 @@ export class VehiculoCreateComponent implements OnInit {
       this.vehiculoForm.controls['cilindraje'].value, 
       new Date);
       this.vehiculoService.saveIngresoVehiculo(vehiculo).subscribe(data => {        
-        this.vehiculo = data;
-        alert ('Vehiculo ingresado correctamente'); 
-        this.messageService = 'Vehiculo ingresado correctamente';
-        console.log('Vehiculo ingresado correctamente');
-        
-      }, error=>{                
-        alert ('Se presento un error al intentar ingresar el vehiculo'); 
-        console.log(error);       
+        this.vehiculo = data;   
+
+        this.messageService = 'Vehiculo con placa ' + data.vehiculo.placa + ' ingresado correctamente';
+                       
+        this.vehiculoForm.reset();
+
+      }, error=>{       
+              
+        this.messageService = error.message;            
       });
     }
       this.submitted = true;

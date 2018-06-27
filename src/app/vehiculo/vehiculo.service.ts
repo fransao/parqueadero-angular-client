@@ -19,27 +19,22 @@ export class VehiculoService {
 
   findAll(): Observable<any>  {
     return this.http.get(this.apiUrl)
-    .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+    .catch((error:any) => Observable.throw(error.error || 'Server error'));
   }
 
   saveIngresoVehiculo (vehiculo: Vehiculo): Observable<any> {
     return this.http.post(this.apiUrl, vehiculo)
-    .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+    .catch((error:any) => Observable.throw(error.error || 'Server error'));
   }
  
-  /*saveSalidaVehiculo (placaVehiculo: string): Observable<any> {
-    return this.http.put(this.apiUrl+placaVehiculo, placaVehiculo)
-    .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
-  }*/
-
   calcularValorParqueadero (placaVehiculo: string): Observable<any> {
     return this.http.put(this.apiUrl+placaVehiculo, placaVehiculo)
-    .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+    .catch((error:any) => Observable.throw(error.error || 'Server error'));
   }
 
   obtenerTCRM (): Observable<any> {
     return this.http.get(this.apiTcrmUrl)
-    .catch((error:any) => Observable.throw(error.json().error || 'Serve error'));
+    .catch((error:any) => Observable.throw(error.error || 'Serve error'));
   }
 
 }
