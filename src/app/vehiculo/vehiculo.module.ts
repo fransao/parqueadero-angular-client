@@ -6,6 +6,7 @@ import { VehiculoRoutingModule } from './vehiculo-routing.module';
 import { VehiculoListComponent } from './vehiculo/vehiculo-list/vehiculo-list.component';
 import { VehiculoCreateComponent } from './vehiculo/vehiculo-create/vehiculo-create.component';
 import { VehiculoSalidaComponent } from './vehiculo/vehiculo-salida/vehiculo-salida.component';
+import { TcrmComponent } from './vehiculo/tcrm/tcrm.component';
 
 @NgModule({
   imports: [
@@ -14,6 +15,9 @@ import { VehiculoSalidaComponent } from './vehiculo/vehiculo-salida/vehiculo-sal
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [VehiculoListComponent, VehiculoCreateComponent, VehiculoSalidaComponent]
+  exports: [
+    TcrmComponent  
+  ],
+  declarations: [VehiculoListComponent, VehiculoCreateComponent, VehiculoSalidaComponent, TcrmComponent]
 })
 export class VehiculoModule { }

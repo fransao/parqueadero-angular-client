@@ -49,6 +49,6 @@ export class VehiculoSalidaComponent implements OnInit {
       });
     }     
    
-    }
+  }
 
 }
