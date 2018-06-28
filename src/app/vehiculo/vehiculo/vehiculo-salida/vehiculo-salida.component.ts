@@ -17,7 +17,8 @@ export class VehiculoSalidaComponent implements OnInit {
  
   private gestionVehiculo: GestionVehiculo;
   gestionVehiculoForm: FormGroup;
-  ingresoVehiculo: boolean;
+  salidaVehiculo: boolean;
+  messageService = '';
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -31,7 +32,7 @@ export class VehiculoSalidaComponent implements OnInit {
       fechaSalida: new FormControl(''),    
       valorPagar: new FormControl(''),  
     });
-    this.ingresoVehiculo = false;
+    this.salidaVehiculo = false;
   }
 
   onSubmit() {
@@ -41,14 +42,15 @@ export class VehiculoSalidaComponent implements OnInit {
         this.gestionVehiculoForm.setValue ({
           placa : this.gestionVehiculo.vehiculo.placa,
           tipoVehiculo : this.gestionVehiculo.vehiculo.tipoVehiculo,
-          fechaIngreso : this.gestionVehiculo.fechaIngreso,
-          fechaSalida : this.gestionVehiculo.fechaSalida,
+          fechaIngreso : new Date(this.gestionVehiculo.fechaIngreso),
+          fechaSalida : new Date(this.gestionVehiculo.fechaSalida),
           valorPagar : this.gestionVehiculo.valor,
         });
-
-        this.ingresoVehiculo = true;
+        this.messageService = 'Salida de vehiculo exitosa';
+        this.salidaVehiculo = true;
 
       }, error=>{
+        this.messageService = 'Error al realizar la salida del Vehiculo';
         alert ('Se presento un error al mostrar la informacion de salida del vehiculo'); 
         console.error(error);
       });

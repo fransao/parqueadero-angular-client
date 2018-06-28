@@ -30,7 +30,7 @@ export class VehiculoCreateComponent implements OnInit {
     this.vehiculoForm = new FormGroup({
       placa: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(6)]),
       tipoVehiculo: new FormControl('', Validators.required),
-      cilindraje: new FormControl(''),     
+      cilindraje: new FormControl('', [Validators.minLength(2),Validators.maxLength(4)]),     
     });
     
   }

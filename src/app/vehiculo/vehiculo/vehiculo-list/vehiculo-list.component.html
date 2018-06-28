@@ -1,46 +1,36 @@
-<p>
-  vehiculo-list works!
-</p>
-
 <div class="container">
   <div class="row">
     <div class="col">
       <section>
         <header class="header">
           <div class="row">
-            <div class="col-md-4">
-              <h1>Vehiculos</h1>
-            </div>
-            <div class="col-md-6">
-
-            </div>
-            <div class="col-md-2">
-
-            </div>
+            <div class="col-md-12">
+              <h4>Vehiculos</h4>
+            </div>            
           </div>
-
         </header>
       </section>
 
-      <section class="main">
+      <section class="main" >
 
         <table class="table">
-          <thead>
+          <caption>Vehiculos en el parqueadero</caption>
+          <thead class="thead-light">
           <tr>
             <th>#</th>
             <th>Placa</th>
             <th>Tipo Vehiculo</th>
             <th>Fecha ingreso</th>
-            <th></th>
+            
           </tr>
           </thead>
 
           <tbody>
-              <tr *ngFor="let vehiculo of vehiculos">
+              <tr *ngFor="let vehiculo of vehiculos" id="vehiculos">
                   <th scope="row">{{vehiculo.secuenciaParqueoVehiculo}}</th>
                   <td>{{vehiculo.vehiculo.placa}}</td>
                   <td>{{vehiculo.vehiculo.tipoVehiculo}}</td>
-                  <td>{{vehiculo.fechaIngreso | date:'medium'}}</td>          
+                  <td>{{vehiculo.fechaIngreso | date:'medium'}}</td>         
                   
               </tr>
           </tbody>
