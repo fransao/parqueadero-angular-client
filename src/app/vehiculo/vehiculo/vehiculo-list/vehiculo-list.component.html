@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="vehiculos">
   <div class="row">
     <div class="col">
       <section>
@@ -26,7 +26,7 @@
           </thead>
 
           <tbody>
-              <tr *ngFor="let vehiculo of vehiculos" id="vehiculos">
+              <tr *ngFor="let vehiculo of vehiculos">
                   <th scope="row">{{vehiculo.secuenciaParqueoVehiculo}}</th>
                   <td>{{vehiculo.vehiculo.placa}}</td>
                   <td>{{vehiculo.vehiculo.tipoVehiculo}}</td>

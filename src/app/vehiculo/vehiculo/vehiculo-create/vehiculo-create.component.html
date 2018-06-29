@@ -39,7 +39,7 @@
           <button type="submit" class="btn btn-primary"  [disabled]="!vehiculoForm.valid" name="ingresar" >Submit</button>
                               
           <div id="mensaje" class="alert alert-secondary" role="alert" *ngIf="submitted == true">
-            <p>
+            <p id="parrafomensaje">
               {{messageService}}
             </p>
           </div>

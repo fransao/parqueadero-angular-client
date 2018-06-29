@@ -46,8 +46,8 @@ export class VehiculoSalidaComponent implements OnInit {
           fechaSalida : new Date(this.gestionVehiculo.fechaSalida),
           valorPagar : this.gestionVehiculo.valor,
         });
-        this.messageService = 'Salida de vehiculo exitosa';
-        this.messageService = 'Registro salida vehiculo correctamente';        
+        
+        this.messageService = 'Registro salida vehiculo exitoso';        
 
       }, error=>{
         this.messageService = error.message;

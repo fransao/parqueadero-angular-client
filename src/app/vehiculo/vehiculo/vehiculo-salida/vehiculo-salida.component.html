@@ -7,18 +7,17 @@
               <div class="form-group">
                 <label>Placa</label>
                 <input type="text"
-                       class="form-control"
+                       class="form-control toUppercase"
                        maxlength="6"
                        formControlName="placa"
                        placeholder="Digite la placa del vehiculo"
-                       id="placa">
+                       id="placa"
+                       >
 
                 <button type="submit" class="btn btn-primary"  [disabled]="!gestionVehiculoForm.valid" name="consultar">Consultar</button>
               </div>
               
-              <div>
-                  
-              </div>
+ 
             </fieldset>
 
             <fieldset>
@@ -26,7 +25,7 @@
                   <label>Placa</label>
                   <input type="text"
                          class="form-control"
-                         formControlName="placa"
+                         formControlName="placa"                         
                          disabled>
                     
               </div>
