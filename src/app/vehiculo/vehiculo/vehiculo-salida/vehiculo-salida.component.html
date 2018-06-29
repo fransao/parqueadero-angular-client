@@ -8,6 +8,7 @@
                 <label>Placa</label>
                 <input type="text"
                        class="form-control"
+                       maxlength="6"
                        formControlName="placa"
                        placeholder="Digite la placa del vehiculo"
                        id="placa">
@@ -68,10 +69,12 @@
 
             </fieldset>
             
-            <div id="mensaje">
-              {{messageService}}
+            <div id="mensaje" class="alert alert-secondary" role="alert" *ngIf="submitted == true">
+              <p>
+                {{messageService}}
+              </p>
             </div>
-    
+ 
  
             <!--<pre>{{gestionVehiculoForm.value | json}}</pre>-->
               

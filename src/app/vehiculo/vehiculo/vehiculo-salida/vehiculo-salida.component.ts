@@ -17,8 +17,8 @@ export class VehiculoSalidaComponent implements OnInit {
  
   private gestionVehiculo: GestionVehiculo;
   gestionVehiculoForm: FormGroup;
-  salidaVehiculo: boolean;
   messageService = '';
+  submitted = false;
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -26,13 +26,13 @@ export class VehiculoSalidaComponent implements OnInit {
 
   ngOnInit() {
      this.gestionVehiculoForm = new FormGroup({
-      placa: new FormControl('', Validators.required),
+      placa: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(6)]),
       tipoVehiculo: new FormControl(''),      
       fechaIngreso: new FormControl(''),  
       fechaSalida: new FormControl(''),    
       valorPagar: new FormControl(''),  
     });
-    this.salidaVehiculo = false;
+    
   }
 
   onSubmit() {
@@ -47,15 +47,13 @@ export class VehiculoSalidaComponent implements OnInit {
           valorPagar : this.gestionVehiculo.valor,
         });
         this.messageService = 'Salida de vehiculo exitosa';
-        this.salidaVehiculo = true;
+        this.messageService = 'Registro salida vehiculo correctamente';        
 
       }, error=>{
-        this.messageService = 'Error al realizar la salida del Vehiculo';
-        alert ('Se presento un error al mostrar la informacion de salida del vehiculo'); 
-        console.error(error);
+        this.messageService = error.message;
       });
     }     
-   
+    this.submitted = true;
   }
 
 }
